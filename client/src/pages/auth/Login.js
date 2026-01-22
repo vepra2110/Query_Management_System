@@ -4,6 +4,7 @@ import { loginUser } from '../../api/authApi';
 import useAuth from '../../hooks/useAuth';
 import InputField from '../../components/common/InputField';
 import { ROLES } from '../../utils/constants';
+import styles from './Auth.module.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -24,14 +25,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
+    <div className={styles.authContainer}>
+      <form onSubmit={handleSubmit} className={styles.formWrapper}>
+        <h2 className={styles.title}>Sign In</h2>
         <InputField label="Username" onChange={(e) => setFormData({...formData, username: e.target.value})} required />
         <InputField label="Password" type="password" onChange={(e) => setFormData({...formData, password: e.target.value})} required />
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Submit</button>
-        <p className="mt-4 text-center text-sm">
-          New here? <Link to="/signup" className="text-blue-500">Sign Up</Link>
+        <button type="submit" className={styles.submitButton}>Submit</button>
+        <p className={styles.linkText}>
+          New here? <Link to="/signup">Sign Up</Link>
         </p>
       </form>
     </div>

@@ -1,0 +1,173 @@
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  background-color: white;
+}
+
+.header:hover {
+  background-color: #f9fafb;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1f2937;
+  margin: 0;
+  flex: 1;
+}
+
+.expanded {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.expandedSection {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #1f2937;
+  margin-right: 0.5rem;
+}
+
+.assignedInfo {
+  padding: 0.75rem;
+  background-color: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.answerBox {
+  background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%);
+  border-left: 4px solid #22c55e;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.answerLabel {
+  font-weight: 700;
+  color: #166534;
+  margin-right: 0.5rem;
+}
+
+.answerText {
+  color: #15803d;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.actionPanel {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  flex-wrap: wrap;
+}
+
+.actionLabel {
+  font-weight: 600;
+  color: #4b5563;
+  margin-right: 0.5rem;
+}
+
+.answerTextarea {
+  width: 100%;
+  border: 2px solid #e5e7eb;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  margin-bottom: 0.75rem;
+}
+
+.answerTextarea:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.buttonSubmit {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+}
+
+.buttonSubmit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.buttonReject {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.buttonReject:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.buttonAssign {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.buttonAssign:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.buttonAssign:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.rejectButton {
+  margin-left: auto;
+}

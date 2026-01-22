@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './AssignDropdown.module.css';
 
 const AssignDropdown = ({ teamHeads, selectedHead, onChange }) => {
   return (
     <select
-      className="border p-2 rounded text-sm bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+      className={styles.select}
       value={selectedHead}
       onChange={(e) => onChange(e.target.value)}
     >

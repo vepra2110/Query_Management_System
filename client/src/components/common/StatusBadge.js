@@ -1,8 +1,14 @@
 import { STATUS_COLORS } from '../../utils/constants';
+import styles from './StatusBadge.module.css';
 
-const StatusBadge = ({ status }) => (
-  <span className={`px-2 py-1 rounded text-xs font-semibold border ${STATUS_COLORS[status] || 'bg-gray-100'}`}>
-    {status}
-  </span>
-);
+const StatusBadge = ({ status }) => {
+  const statusClass = status.toLowerCase().replace(/\s+/g, '');
+  const badgeClass = styles[statusClass] || styles.default;
+  
+  return (
+    <span className={`${styles.badge} ${badgeClass}`}>
+      {status}
+    </span>
+  );
+};
 export default StatusBadge;

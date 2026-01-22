@@ -3,6 +3,7 @@ import Navbar from '../../components/layout/Navbar';
 import QueryCard from '../../components/queries/QueryCard';
 import { fetchQueries, resolveQuery, rejectQuery } from '../../api/queryApi';
 import { ROLES } from '../../utils/constants';
+import styles from './Dashboard.module.css';
 
 const TeamHeadDashboard = () => {
   const [queries, setQueries] = useState([]);
@@ -27,19 +28,21 @@ const TeamHeadDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={styles.dashboardContainer}>
       <Navbar tabs={['Workload']} activeTab="Workload" setActiveTab={() => {}} />
-      <main className="max-w-4xl mx-auto p-6">
-        {queries.length === 0 ? <p className="text-center text-gray-500">No pending queries.</p> : (
-          queries.map(q => (
-            <QueryCard 
-              key={q._id} 
-              query={q} 
-              role={ROLES.TEAM_HEAD}
-              onResolve={handleResolve}
-              onReject={handleReject}
-            />
-          ))
+      <main className={styles.main}>
+        {queries.length === 0 ? <p className={styles.emptyState}>No pending queries.</p> : (
+          <div className={styles.queryList}>
+            {queries.map(q => (
+              <QueryCard 
+                key={q._id} 
+                query={q} 
+                role={ROLES.TEAM_HEAD}
+                onResolve={handleResolve}
+                onReject={handleReject}
+              />
+            ))}
+          </div>
         )}
       </main>
     </div>

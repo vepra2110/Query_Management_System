@@ -6,6 +6,7 @@ import Modal from '../../components/common/Modal';
 import { fetchQueries, assignQuery, rejectQuery } from '../../api/queryApi';
 import { fetchTeamHeads } from '../../api/adminApi';
 import { ROLES } from '../../utils/constants';
+import styles from './Dashboard.module.css';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('Queries');
@@ -53,12 +54,12 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={styles.dashboardContainer}>
       <Navbar tabs={['Queries', 'Team Heads']} activeTab={activeTab} setActiveTab={setActiveTab} />
       
-      <main className="max-w-6xl mx-auto p-6">
+      <main className={styles.main}>
         {activeTab === 'Queries' && (
-          <div>
+          <div className={styles.queryList}>
             {queries.map(q => (
               <QueryCard 
                 key={q._id} 
@@ -83,8 +84,10 @@ const AdminDashboard = () => {
         onClose={() => setIsModalOpen(false)} 
         title={`Queries Assigned to ${selectedHeadName}`}
       >
-        {selectedHeadQueries.length === 0 ? <p>No active queries.</p> : (
-          selectedHeadQueries.map(q => <QueryCard key={q._id} query={q} role={ROLES.ADMIN} />)
+        {selectedHeadQueries.length === 0 ? <p className={styles.emptyState}>No active queries.</p> : (
+          <div className={styles.queryList}>
+            {selectedHeadQueries.map(q => <QueryCard key={q._id} query={q} role={ROLES.ADMIN} />)}
+          </div>
         )}
       </Modal>
     </div>

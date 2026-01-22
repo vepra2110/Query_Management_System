@@ -4,6 +4,7 @@ import { registerUser } from '../../api/authApi';
 import useAuth from '../../hooks/useAuth';
 import InputField from '../../components/common/InputField';
 import { ROLES } from '../../utils/constants';
+import styles from './Auth.module.css';
 
 const Signup = () => {
   const [formData, setFormData] = useState({ username: '', password: '', confirmPassword: '', role: ROLES.PARTICIPANT, secretCode: '' });
@@ -26,9 +27,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+    <div className={styles.authContainer}>
+      <form onSubmit={handleSubmit} className={styles.formWrapper}>
+        <h2 className={styles.title}>Sign Up</h2>
         
         <InputField label="Username" onChange={(e) => setFormData({...formData, username: e.target.value})} required />
         <InputField label="Password" type="password" onChange={(e) => setFormData({...formData, password: e.target.value})} required />
@@ -37,7 +38,7 @@ const Signup = () => {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Role</label>
           <select 
-            className="w-full border rounded py-2 px-3 bg-white" 
+            className={styles.roleSelect}
             value={formData.role} 
             onChange={(e) => setFormData({...formData, role: e.target.value})}
           >
@@ -57,9 +58,9 @@ const Signup = () => {
            />
         )}
 
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Submit</button>
-        <p className="mt-4 text-center text-sm">
-          Already have an account? <Link to="/" className="text-blue-500">Sign In</Link>
+        <button type="submit" className={styles.submitButton}>Submit</button>
+        <p className={styles.linkText}>
+          Already have an account? <Link to="/">Sign In</Link>
         </p>
       </form>
     </div>

@@ -34,6 +34,7 @@ import AdminDashboard from './pages/dashboards/AdminDashboard';
 import TeamHeadDashboard from './pages/dashboards/TeamHeadDashboard';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { ROLES } from './utils/constants';
+import styles from './App.module.css';
 
 // Simple Wrapper for role checking
 const ProtectedRouteWrapper = ({ children, allowedRoles }) => {
